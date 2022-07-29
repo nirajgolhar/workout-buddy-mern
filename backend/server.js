@@ -6,7 +6,7 @@ const workoutRoutes = require('./routes/workouts')
 
 // express app
 const app = express()
-
+const PORT = process.env.PORT || 3000 
 // middleware
 app.use(express.json())
 
@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('connected to database')
     // listen to port
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
       console.log('listening for requests on port', process.env.PORT)
     })
   })
