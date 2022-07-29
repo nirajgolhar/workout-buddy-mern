@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd frontend && npm run build",
-    "install-client": "cd frontend && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "builds": "cd frontend && npm run build",
+    "install-clients": "cd frontend && npm install",
+    "heroku-postbuildss": "npm run install-client && npm run build",
     "heroku-postbuilds": "NPM_CONFIG_PRODUCTION=false cd frontend && npm install npm && run build",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
