@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "install-client": "cd frontend && npm install",
     "build": "cd frontend && npm run build",
