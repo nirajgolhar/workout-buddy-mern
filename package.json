@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "16.x",
-    "npm": "6.x"
-  },
   "scripts": {
     "install-client": "cd frontend && npm install",
     "builds": "cd frontend && npm run build",
-    "heroku-postbuilds": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuilds": "npm run install-client && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend && npm install npm && run build",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "6.x"
   },
   "keywords": [],
   "author": "",
