@@ -15,6 +15,10 @@ app.use((req, res, next) => {
   next()
 })
 
+if (process.env.NODE_ENV !== 'production') {
+  app.use(express.static('frontend/build'))
+}
+
 // routes
 app.use('/api/workouts', workoutRoutes)
 
@@ -24,7 +28,7 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('connected to database')
     // listen to port
     app.listen(PORT, () => {
-      console.log('listening for requests on port', process.env.PORT)
+      console.log('listening for requests on port', process.env.PORT || 3000)
     })
   })
   .catch((err) => {
