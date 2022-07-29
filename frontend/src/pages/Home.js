@@ -12,16 +12,25 @@ const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext()
 
   useEffect(() => {
+    const API_URL = 'https://mern-workout-buddy-app.herokuapp.com'
+
     const fetchWorkouts = async () => {
       // const API_URL = process.env.API_URL || 'http://localhost:3000'
-      const API_URL = 'https://workout-buddy-gui.herokuapp.com'
-      const response = await fetch(`${API_URL}/api/workouts`)
-      const json = await response.json()
-      if (response.ok) {
-        dispatch({ type: 'SET_WORKOUTS', payload: json })
+      try {
+        const response = await fetch(`${API_URL}/api/workouts`, {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },  
+        })
+
+        const json = await response.json()
+        if (response.ok) {
+          dispatch({ type: 'SET_WORKOUTS', payload: json })
+        }
+      } catch (er) {
+        console.log('Error', er)
       }
     }
-
     fetchWorkouts()
   }, [dispatch])
 
