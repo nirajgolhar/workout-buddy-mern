@@ -83,6 +83,7 @@ const updateWorkout = async (req, res) => {
   })
 
   if (!workout) {
+    console.log('error');
     return res.status(400).json({error: 'No such workout'})
   }
 
